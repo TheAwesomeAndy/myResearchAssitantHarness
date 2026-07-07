@@ -13,8 +13,11 @@ SKIP_FILES = {'README.md', 'tools/check_path_markers.py', 'harness/policies/priv
 
 
 def iter_files(root: Path):
+    skip_fixture_examples = root == Path('.')
     for path in root.rglob('*'):
         if not path.is_file():
+            continue
+        if skip_fixture_examples and path.parts and path.parts[0] == 'fixtures':
             continue
         normalized = path.as_posix()
         if normalized in SKIP_FILES:
