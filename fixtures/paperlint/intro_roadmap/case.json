@@ -1,0 +1,7 @@
+{
+  "name": "intro_roadmap",
+  "tex": "manuscript/main.tex",
+  "select": ["intro.roadmap"],
+  "profile": "submission",
+  "expect": "fail"
+}

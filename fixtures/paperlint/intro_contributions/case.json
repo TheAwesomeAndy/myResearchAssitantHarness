@@ -1,0 +1,7 @@
+{
+  "name": "intro_contributions",
+  "tex": "manuscript/main.tex",
+  "select": ["intro.contributions"],
+  "profile": "submission",
+  "expect": "fail"
+}

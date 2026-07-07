@@ -1,0 +1,7 @@
+{
+  "name": "methods_no_reproducibility",
+  "tex": "manuscript/main.tex",
+  "select": ["methods.reproducibility"],
+  "profile": "submission",
+  "expect": "fail"
+}

@@ -1,0 +1,7 @@
+{
+  "name": "methods_future_tense",
+  "tex": "manuscript/main.tex",
+  "select": ["methods.future-tense"],
+  "profile": "submission",
+  "expect": "fail"
+}

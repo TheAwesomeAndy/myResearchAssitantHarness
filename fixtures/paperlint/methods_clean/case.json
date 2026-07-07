@@ -1,0 +1,15 @@
+{
+  "name": "methods_clean",
+  "tex": "manuscript/main.tex",
+  "select": [
+    "methods.present",
+    "methods.baseline",
+    "methods.leakage",
+    "methods.reproducibility",
+    "methods.robustness",
+    "methods.future-tense"
+  ],
+  "profile": "submission",
+  "expect": "pass",
+  "config": "harness/papercheck.toml"
+}

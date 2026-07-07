@@ -1,0 +1,4 @@
+# SPDX-License-Identifier: Apache-2.0
+# The study involves human participants; leakage-safe validation is required.
+[venue]
+human_subjects = true

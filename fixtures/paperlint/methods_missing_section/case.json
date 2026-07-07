@@ -1,0 +1,7 @@
+{
+  "name": "methods_missing_section",
+  "tex": "manuscript/main.tex",
+  "select": ["methods.present"],
+  "profile": "submission",
+  "expect": "fail"
+}
