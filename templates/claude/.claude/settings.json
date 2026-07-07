@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(make harness-verify)",
+      "Bash(git status *)",
+      "Bash(git diff *)",
+      "Bash(python scripts/check_forbidden_phrases.py *)",
+      "Bash(python tools/check_path_markers.py *)"
+    ],
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(git push *)"
+    ]
+  }
+}
