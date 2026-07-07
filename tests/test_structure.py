@@ -34,7 +34,7 @@ class StructureTests(unittest.TestCase):
         self.assertEqual(structure.limits_present(ctx), [])
         self.assertEqual(structure.limits_pivot(ctx), [])
         self.assertEqual(structure.conclusion_abstract_copy(ctx), [])
-        self.assertEqual(structure.related_position(ctx, ) if False else structure.related_position(ctx), [])
+        self.assertEqual(structure.related_position(ctx), [])
         self.assertEqual(structure.related_hostile(ctx), [])
         self.assertEqual(structure.related_laundry_list(ctx), [])
 
