@@ -12,7 +12,12 @@
       "Bash(python scripts/check_table_values.py *)",
       "Bash(python scripts/check_table_manifest.py *)",
       "Bash(python scripts/run_fixture_tests.py *)",
-      "Bash(python scripts/run_report.py *)"
+      "Bash(python scripts/run_report.py *)",
+      "Bash(python scripts/qgate.py *)",
+      "Bash(python scripts/check_heading.py *)",
+      "Bash(python scripts/check_summary.py *)",
+      "Bash(python scripts/check_signals.py *)",
+      "Bash(make -f makefiles/AcademicHarness.mk academic-check *)"
     ],
     "deny": [
       "Bash(rm -rf *)",
