@@ -2,13 +2,22 @@
   "permissions": {
     "allow": [
       "Bash(make harness-verify)",
+      "Bash(make harness-fixtures)",
       "Bash(git status *)",
       "Bash(git diff *)",
       "Bash(python scripts/check_forbidden_phrases.py *)",
       "Bash(python tools/check_path_markers.py *)",
       "Bash(python scripts/verify_latex.py *)",
       "Bash(python scripts/check_citations.py *)",
-      "Bash(python scripts/check_table_values.py *)"
+      "Bash(python scripts/check_table_values.py *)",
+      "Bash(python scripts/check_table_manifest.py *)",
+      "Bash(python scripts/run_fixture_tests.py *)",
+      "Bash(python scripts/run_report.py *)",
+      "Bash(python scripts/qgate.py *)",
+      "Bash(python scripts/check_heading.py *)",
+      "Bash(python scripts/check_summary.py *)",
+      "Bash(python scripts/check_signals.py *)",
+      "Bash(make -f makefiles/AcademicHarness.mk academic-check *)"
     ],
     "deny": [
       "Bash(rm -rf *)",
