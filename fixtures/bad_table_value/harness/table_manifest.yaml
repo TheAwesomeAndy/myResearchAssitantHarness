@@ -1,0 +1,19 @@
+{
+  "tables": [
+    {
+      "name": "accuracy_table",
+      "latex_file": "fixtures/bad_table_value/manuscript/main.tex",
+      "csv_file": "fixtures/bad_table_value/outputs/results.csv",
+      "matches": [
+        {
+          "label": "clean_accuracy",
+          "csv_row": {"metric": "accuracy", "condition": "clean"},
+          "csv_column": "value",
+          "manuscript_value": "0.910",
+          "required_text": "0.910",
+          "tolerance": 0.001
+        }
+      ]
+    }
+  ]
+}
