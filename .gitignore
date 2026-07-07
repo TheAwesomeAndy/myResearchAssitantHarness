@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# LaTeX
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+
+# Local data and secrets
+.env
+.env.*
+secrets/
+data_local/
+private_data/
+restricted_data/
+
+# Harness outputs
+harness/reports/*.json
+harness/reports/*.log
+harness/reports/*.txt
