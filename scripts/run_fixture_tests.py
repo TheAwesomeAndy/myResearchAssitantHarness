@@ -97,6 +97,16 @@ def main() -> int:
         FixtureCase("bad_citation_log", [python, "scripts/check_citations.py", "fixtures/bad_citation/manuscript/main.log"], False),
         FixtureCase("forbidden_phrase", [python, "scripts/check_forbidden_phrases.py", "fixtures/forbidden_phrase", "--phrase-file", "harness/forbidden_phrases.txt"], False),
         FixtureCase("path_marker", [python, "tools/check_path_markers.py", "fixtures/path_marker"], False),
+        # Submission gate scripts.
+        FixtureCase("cover_letter_good", [python, "scripts/check_cover_letter.py", "fixtures/submission/cover_letter_good.md", "--journal", "Journal of Robust Machine Intelligence"], True),
+        FixtureCase("cover_letter_bad", [python, "scripts/check_cover_letter.py", "fixtures/submission/cover_letter_bad.md"], False),
+        FixtureCase("rebuttal_good", [python, "scripts/check_rebuttal.py", "fixtures/submission/rebuttal_good.md"], True),
+        FixtureCase("rebuttal_bad", [python, "scripts/check_rebuttal.py", "fixtures/submission/rebuttal_bad.md"], False),
+        FixtureCase("wall_good", [python, "scripts/phase_gate.py", "fixtures/wall/good/manuscript/main.tex"], True),
+        FixtureCase("wall_violation", [python, "scripts/phase_gate.py", "fixtures/wall/violation/manuscript/main.tex"], False),
+        # Memory tooling smoke checks (Module 7).
+        FixtureCase("memory_digest", [python, "scripts/memory.py", "digest", "--file", "fixtures/memory/memory.jsonl"], True),
+        FixtureCase("self_improve", [python, "scripts/self_improve.py", "--history", "fixtures/memory/history.jsonl", "--memory", "fixtures/memory/memory.jsonl", "--report", "harness/reports/improvement_report.md"], True),
     ]
 
     if has_latex:

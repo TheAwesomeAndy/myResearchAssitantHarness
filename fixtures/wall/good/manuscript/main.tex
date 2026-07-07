@@ -1,0 +1,12 @@
+\documentclass{article}
+\begin{document}
+\begin{figure}
+\includegraphics{fig1.png}
+\caption{Pipeline overview showing the subject-level split and the perturbation stages applied.}
+\label{fig:pipe}
+\end{figure}
+\section{Methods}
+We used a leave-one-subject-out protocol together with a strong Transformer baseline, and we injected synthetic jitter and channel dropout in a controlled sweep to map the exact failure thresholds of the classifier under increasing perturbation, holding all other training hyperparameters fixed across every fold of the evaluation.
+\section{Results}
+The measured clean accuracy was 0.71, and it degraded to 0.62 under moderate jitter, with the sharpest drop occurring once channel dropout exceeded a quarter of the montage, a pattern that held consistently across every held-out subject in the leave-one-subject-out evaluation folds we examined in this study.
+\end{document}
