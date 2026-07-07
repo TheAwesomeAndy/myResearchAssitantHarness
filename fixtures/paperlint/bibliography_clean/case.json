@@ -1,0 +1,6 @@
+{
+  "name": "bibliography_clean",
+  "select": ["bib.files","bib.missing-entries","bib.duplicate-keys","bib.missing-fields","bib.uncited","bib.staleness"],
+  "profile": "submission",
+  "expect": "pass"
+}

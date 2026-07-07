@@ -1,0 +1,7 @@
+{
+  "name": "blind_author",
+  "select": ["blind.author-block"],
+  "profile": "submission",
+  "expect": "fail",
+  "config": "harness/papercheck.toml"
+}

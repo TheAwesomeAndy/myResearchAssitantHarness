@@ -1,0 +1,6 @@
+{
+  "name": "lang_significant",
+  "select": ["lang.significant"],
+  "profile": "submission",
+  "expect": "fail"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "ethics_missing",
+  "select": ["ethics.statement"],
+  "profile": "submission",
+  "expect": "fail"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "related_early",
+  "select": ["related.position"],
+  "profile": "submission",
+  "expect": "fail"
+}

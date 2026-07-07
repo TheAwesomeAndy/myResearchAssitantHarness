@@ -1,0 +1,6 @@
+{
+  "name": "lang_hype_claims",
+  "select": ["lang.hype-claims"],
+  "profile": "submission",
+  "expect": "fail"
+}

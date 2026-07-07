@@ -1,0 +1,6 @@
+{
+  "name": "floats_color_only",
+  "select": ["floats.color-only"],
+  "profile": "submission",
+  "expect": "fail"
+}

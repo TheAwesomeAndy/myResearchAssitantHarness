@@ -1,0 +1,6 @@
+{
+  "name": "structure_clean",
+  "select": ["structure.sections","limits.present","limits.pivot","conclusion.abstract-copy","related.position","related.hostile","related.laundry-list"],
+  "profile": "submission",
+  "expect": "pass"
+}

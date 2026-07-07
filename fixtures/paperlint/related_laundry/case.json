@@ -1,0 +1,6 @@
+{
+  "name": "related_laundry",
+  "select": ["related.laundry-list"],
+  "profile": "submission",
+  "expect": "fail"
+}

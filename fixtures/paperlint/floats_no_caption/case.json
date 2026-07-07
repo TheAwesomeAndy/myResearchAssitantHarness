@@ -1,0 +1,6 @@
+{
+  "name": "floats_no_caption",
+  "select": ["floats.caption"],
+  "profile": "submission",
+  "expect": "fail"
+}

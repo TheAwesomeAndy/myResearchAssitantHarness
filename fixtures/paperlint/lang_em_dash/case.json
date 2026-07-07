@@ -1,0 +1,6 @@
+{
+  "name": "lang_em_dash",
+  "select": ["lang.em-dash"],
+  "profile": "submission",
+  "expect": "fail"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "lang_cautious",
+  "select": ["lang.cautious"],
+  "profile": "submission",
+  "expect": "fail"
+}

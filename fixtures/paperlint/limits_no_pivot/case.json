@@ -1,0 +1,6 @@
+{
+  "name": "limits_no_pivot",
+  "select": ["limits.pivot"],
+  "profile": "submission",
+  "expect": "fail"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "bib_duplicate",
+  "select": ["bib.duplicate-keys"],
+  "profile": "submission",
+  "expect": "fail"
+}

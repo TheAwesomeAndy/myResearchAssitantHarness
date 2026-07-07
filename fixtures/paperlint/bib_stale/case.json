@@ -1,0 +1,6 @@
+{
+  "name": "bib_stale",
+  "select": ["bib.staleness"],
+  "profile": "submission",
+  "expect": "fail"
+}

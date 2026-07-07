@@ -1,0 +1,6 @@
+{
+  "name": "structure_missing",
+  "select": ["structure.sections"],
+  "profile": "submission",
+  "expect": "fail"
+}

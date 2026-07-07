@@ -1,0 +1,6 @@
+{
+  "name": "related_hostile",
+  "select": ["related.hostile"],
+  "profile": "submission",
+  "expect": "fail"
+}

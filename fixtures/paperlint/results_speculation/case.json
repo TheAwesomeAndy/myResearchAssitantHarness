@@ -1,0 +1,6 @@
+{
+  "name": "results_speculation",
+  "select": ["results.speculation"],
+  "profile": "submission",
+  "expect": "fail"
+}

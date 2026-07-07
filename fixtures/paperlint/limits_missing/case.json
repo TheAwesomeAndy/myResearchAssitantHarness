@@ -1,0 +1,6 @@
+{
+  "name": "limits_missing",
+  "select": ["limits.present"],
+  "profile": "submission",
+  "expect": "fail"
+}

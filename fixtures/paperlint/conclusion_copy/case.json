@@ -1,0 +1,6 @@
+{
+  "name": "conclusion_copy",
+  "select": ["conclusion.abstract-copy"],
+  "profile": "submission",
+  "expect": "fail"
+}

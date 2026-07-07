@@ -1,0 +1,6 @@
+{
+  "name": "discussion_hedging",
+  "select": ["discussion.hedging"],
+  "profile": "submission",
+  "expect": "fail"
+}

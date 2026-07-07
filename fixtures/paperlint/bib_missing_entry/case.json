@@ -1,0 +1,6 @@
+{
+  "name": "bib_missing_entry",
+  "select": ["bib.missing-entries"],
+  "profile": "submission",
+  "expect": "fail"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "results_discussion_clean",
+  "select": ["results.speculation","discussion.present","discussion.compare","discussion.hedging","claims.overclaim"],
+  "profile": "submission",
+  "expect": "pass"
+}

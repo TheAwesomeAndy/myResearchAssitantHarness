@@ -1,0 +1,6 @@
+{
+  "name": "lang_ai_tells",
+  "select": ["lang.ai-tells"],
+  "profile": "submission",
+  "expect": "fail"
+}
