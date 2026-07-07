@@ -24,6 +24,11 @@ SKIP_NAMES = {"__pycache__", ".pytest_cache"}
 def copy_tree(src: Path, dst: Path) -> None:
     if not src.exists() or src.name in SKIP_NAMES:
         return
+    if src.is_file():
+        # A single file (e.g. project-instructions.md -> CLAUDE.md).
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(src, dst)
+        return
     if dst.exists():
         # Merge directories by copying individual files
         for item in src.iterdir():
