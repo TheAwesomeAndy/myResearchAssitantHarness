@@ -5,7 +5,10 @@
       "Bash(git status *)",
       "Bash(git diff *)",
       "Bash(python scripts/check_forbidden_phrases.py *)",
-      "Bash(python tools/check_path_markers.py *)"
+      "Bash(python tools/check_path_markers.py *)",
+      "Bash(python scripts/verify_latex.py *)",
+      "Bash(python scripts/check_citations.py *)",
+      "Bash(python scripts/check_table_values.py *)"
     ],
     "deny": [
       "Bash(rm -rf *)",
