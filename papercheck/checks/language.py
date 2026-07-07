@@ -26,15 +26,10 @@ STAT_MARKERS = (
 def _phrase_positions(lowered: str, phrase: str) -> list[int]:
     if " " not in phrase and phrase.isalpha():
         return [match.start() for match in re.finditer(r"\b" + re.escape(phrase) + r"\b", lowered)]
-    positions = []
-    start = 0
-    while True:
-        index = lowered.find(phrase, start)
-        if index < 0:
-            break
-        positions.append(index)
-        start = index + 1
-    return positions
+    # A left word boundary stops "very " matching inside "every ". The
+    # phrase supplies its own right boundary (trailing space or non-word).
+    left = r"(?<![A-Za-z])" if phrase[:1].isalpha() else ""
+    return [match.start() for match in re.finditer(left + re.escape(phrase), lowered)]
 
 
 def _scan(

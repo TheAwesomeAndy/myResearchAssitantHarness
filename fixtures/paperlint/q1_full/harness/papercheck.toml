@@ -1,0 +1,4 @@
+[venue]
+name = "Journal of Robust Machine Intelligence"
+blinding = "double"
+human_subjects = true

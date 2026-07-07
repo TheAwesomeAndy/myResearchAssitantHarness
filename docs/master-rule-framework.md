@@ -30,7 +30,7 @@ strict compliance with high-impact journal standards.
    key decisions.
 3. **Intellectual honesty.** If an experiment yields a negative result or
    lower accuracy than a baseline, report it exactly as measured. Never
-   massage data or fabricate state-of-the-art superiority.
+   massage data or fabricate benchmark superiority.
 4. **Knowledge-base anchoring.** Do not rely on general training data for
    venue-specific claims. Anchor to the target journal's submission
    guidelines, 5-10 model papers from that venue, and the project's own

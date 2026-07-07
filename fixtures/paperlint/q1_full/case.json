@@ -1,0 +1,7 @@
+{
+  "name": "q1_full",
+  "tex": "manuscript/main.tex",
+  "profile": "submission",
+  "expect": "pass",
+  "config": "harness/papercheck.toml"
+}
