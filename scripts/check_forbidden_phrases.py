@@ -20,7 +20,10 @@ def load_phrases(path: Path) -> list[str]:
 
 
 def iter_files(root: Path):
+    skip_fixture_examples = root == Path('.')
     for path in root.rglob("*"):
+        if skip_fixture_examples and path.parts and path.parts[0] == "fixtures":
+            continue
         if path.is_file() and path.suffix.lower() in EXTENSIONS and not any(part in EXCLUDES for part in path.parts):
             yield path
 
