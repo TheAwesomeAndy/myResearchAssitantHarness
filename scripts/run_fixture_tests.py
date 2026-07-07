@@ -1,6 +1,22 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: Apache-2.0
-"""Run synthetic fixture tests for the research AI harness."""
+"""Run synthetic fixture tests for the research AI harness.
+
+Two kinds of cases run here:
+
+1. Hard-coded legacy cases exercising the standalone scripts.
+2. Discovered papercheck cases: every ``fixtures/paperlint/*/case.json``
+   declares a manuscript plus the check ids it must pass or fail:
+
+       {
+         "name": "intro_roadmap",
+         "tex": "manuscript/main.tex",
+         "select": ["intro.roadmap"],
+         "profile": "submission",
+         "expect": "fail",
+         "config": "harness/papercheck.toml"   // optional, case-relative
+       }
+"""
 from __future__ import annotations
 
 import argparse
@@ -17,6 +33,39 @@ class FixtureCase:
     name: str
     command: list[str]
     expect_success: bool
+
+
+def discover_paperlint_cases(python: str, root: Path = Path("fixtures/paperlint")) -> list[FixtureCase]:
+    cases: list[FixtureCase] = []
+    if not root.exists():
+        return cases
+    for case_file in sorted(root.glob("*/case.json")):
+        spec = json.loads(case_file.read_text(encoding="utf-8"))
+        case_dir = case_file.parent
+        command = [
+            python,
+            "-m",
+            "papercheck",
+            str(case_dir / spec.get("tex", "manuscript/main.tex")),
+            "--profile",
+            spec.get("profile", "submission"),
+        ]
+        select = spec.get("select", [])
+        if select:
+            command += ["--select", ",".join(select)]
+        for pattern in spec.get("skip", []):
+            command += ["--skip", pattern]
+        config = spec.get("config")
+        if config:
+            command += ["--config", str(case_dir / config)]
+        cases.append(
+            FixtureCase(
+                name=spec.get("name", case_dir.name),
+                command=command,
+                expect_success=spec.get("expect", "fail") == "pass",
+            )
+        )
+    return cases
 
 
 def run_case(case: FixtureCase) -> dict[str, object]:
@@ -55,6 +104,8 @@ def main() -> int:
         cases.append(FixtureCase("bad_latex_build", [python, "scripts/verify_latex.py", "fixtures/bad_latex/manuscript/main.tex"], False))
     else:
         print("[SKIP] LaTeX build fixtures require latexmk or pdflatex")
+
+    cases.extend(discover_paperlint_cases(python))
 
     results = [run_case(case) for case in cases]
     report_path = Path(args.report)
