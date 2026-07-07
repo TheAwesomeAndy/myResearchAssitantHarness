@@ -13,6 +13,6 @@ jobs:
         with:
           python-version: '3.11'
       - name: Compile Python files
-        run: python -m py_compile scripts/check_forbidden_phrases.py tools/check_path_markers.py
+        run: python -m py_compile scripts/check_forbidden_phrases.py scripts/verify_latex.py scripts/check_citations.py scripts/check_table_values.py tools/check_path_markers.py
       - name: Run harness checks
         run: make -f makefiles/ManuscriptHarness.mk harness-verify
