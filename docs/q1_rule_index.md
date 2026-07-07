@@ -1,3 +1,9 @@
 # Q1 Rule Index
 
-This index maps the publication playbook to harness checks.
+This index maps publication rules to harness checks.
+
+## Operational Layer
+
+- Work one scoped phase at a time.
+- Define check criteria before drafting.
+- Report results directly.
