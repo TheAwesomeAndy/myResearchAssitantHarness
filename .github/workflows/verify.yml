@@ -13,6 +13,8 @@ jobs:
         with:
           python-version: '3.11'
       - name: Compile Python files
-        run: python -m py_compile scripts/check_forbidden_phrases.py scripts/verify_latex.py scripts/check_citations.py scripts/check_table_values.py tools/check_path_markers.py
-      - name: Run harness checks
+        run: python -m py_compile scripts/check_forbidden_phrases.py scripts/verify_latex.py scripts/check_citations.py scripts/check_table_values.py scripts/check_table_manifest.py scripts/run_fixture_tests.py tools/check_path_markers.py
+      - name: Run default harness checks
         run: make -f makefiles/ManuscriptHarness.mk harness-verify
+      - name: Run fixture regression suite
+        run: make -f makefiles/ManuscriptHarness.mk harness-fixtures
