@@ -13,6 +13,8 @@ jobs:
         with:
           python-version: '3.11'
       - name: Compile academic scripts
-        run: python -m py_compile scripts/qgate.py scripts/check_heading.py scripts/check_summary.py scripts/check_signals.py
-      - name: Run academic fixture
+        run: python -m py_compile scripts/qgate.py scripts/check_heading.py scripts/check_summary.py scripts/check_signals.py scripts/paper_check.py
+      - name: Run legacy academic fixture
         run: make -f makefiles/AcademicHarness.mk academic-check MAIN_TEX=fixtures/good_academic/manuscript/main.tex
+      - name: Run unified engine on the full Q1 fixture
+        run: python -m papercheck fixtures/paperlint/q1_full/manuscript/main.tex --profile submission --config fixtures/paperlint/q1_full/harness/papercheck.toml

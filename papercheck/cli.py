@@ -31,6 +31,13 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--skip", action="append", default=[], help="Skip these check ids/prefixes")
     parser.add_argument("--format", choices=("text", "json", "md"), default="text", help="Output format")
     parser.add_argument("--report", default=None, help="Also write a JSON report to this path")
+    parser.add_argument(
+        "--history",
+        nargs="?",
+        const="harness/reports/history.jsonl",
+        default=None,
+        help="Append a one-line JSON run summary to this file (default: harness/reports/history.jsonl)",
+    )
     parser.add_argument("--list-checks", action="store_true", help="List registered checks and exit")
     return parser
 
@@ -72,7 +79,30 @@ def main(argv: list[str] | None = None) -> int:
     if args.report:
         write_report(Path(args.report), render_json(findings, config, ok))
 
+    if args.history:
+        append_history(Path(args.history), tex_path, config, findings, ok)
+
     return 0 if ok else 1
+
+
+def append_history(path: Path, tex_path: Path, config: Config, findings, ok: bool) -> None:
+    """Append a one-line JSON run summary (Module 7: run history)."""
+    import json
+    import time
+
+    from papercheck.report import summarize
+
+    entry = {
+        "timestamp": time.strftime("%Y-%m-%dT%H:%M:%S%z"),
+        "tex": str(tex_path),
+        "profile": config.profile,
+        "passed": ok,
+        "summary": summarize(findings),
+        "check_ids": sorted({finding.check_id for finding in findings}),
+    }
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("a", encoding="utf-8") as handle:
+        handle.write(json.dumps(entry) + "\n")
 
 
 if __name__ == "__main__":

@@ -6,11 +6,39 @@ MAIN_TEX ?= manuscript/main.tex
 LOG_FILE ?= $(MAIN_TEX:.tex=.log)
 CSV_DIR ?= outputs
 TABLE_MANIFEST ?= harness/table_manifest.yaml
+PROFILE ?= draft
+COVER_LETTER ?= submission/cover_letter.md
+REBUTTAL ?= submission/rebuttal.md
+WALL_STATUS ?= harness/wall_status.toml
 
-.PHONY: harness-verify harness-phrases harness-paths harness-latex harness-citations harness-tables harness-table-manifest harness-fixtures
+.PHONY: harness-verify harness-phrases harness-paths harness-latex harness-citations harness-tables harness-table-manifest harness-fixtures harness-paper harness-submission harness-tests harness-wall harness-cover-letter harness-rebuttal harness-memory harness-improve
 
-harness-verify: harness-phrases harness-paths harness-latex harness-citations harness-tables harness-table-manifest
+harness-verify: harness-phrases harness-paths harness-latex harness-citations harness-tables harness-table-manifest harness-paper
 	@echo "harness verification complete"
+
+harness-paper:
+	@if [ -f "$(MAIN_TEX)" ]; then python scripts/paper_check.py $(MAIN_TEX) --profile $(PROFILE) --history; else echo "no manuscript found; skipping papercheck"; fi
+
+harness-submission:
+	python scripts/paper_check.py $(MAIN_TEX) --profile submission --history
+
+harness-tests:
+	python -m unittest discover -s tests
+
+harness-wall:
+	@if [ -f "$(WALL_STATUS)" ]; then python scripts/phase_gate.py $(MAIN_TEX) --status $(WALL_STATUS); else python scripts/phase_gate.py $(MAIN_TEX); fi
+
+harness-cover-letter:
+	python scripts/check_cover_letter.py $(COVER_LETTER)
+
+harness-rebuttal:
+	python scripts/check_rebuttal.py $(REBUTTAL)
+
+harness-memory:
+	python scripts/memory.py digest
+
+harness-improve:
+	python scripts/self_improve.py
 
 harness-phrases:
 	python scripts/check_forbidden_phrases.py $(HARNESS_ROOT) --phrase-file $(PHRASE_FILE)

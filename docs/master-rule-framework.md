@@ -183,3 +183,32 @@ this order. The `scripts/phase_gate.py` gate enforces the sequence:
 - Generate a layman-accessible press release, a social thread on the
   paper's core utility, and prompts for a graphical abstract and a
   video/audio overview.
+
+## Module 7: Memory and Self-Improvement
+
+The harness learns from its own runs and from external feedback. Memory
+is plain, inspectable data in the repository, never hidden state.
+
+- **Rule 7.1 Run history.** Every checker run can append a one-line JSON
+  summary to `harness/reports/history.jsonl` (the `--history` flag).
+  History is the raw material for improvement analysis.
+- **Rule 7.2 The project memory journal.** Durable knowledge lives in
+  `harness/memory/memory.jsonl`, managed by `scripts/memory.py`:
+  decisions (with rationale), lessons (what a gate caught and why),
+  reviewer feedback (verbatim, source-tagged), and open questions. The
+  AI assistant reads the memory digest at session start and records new
+  entries at every phase boundary; memory survives context loss.
+- **Rule 7.3 The retrospective loop.** After each drafting phase and
+  after every external review round, run a retrospective: what did the
+  gates catch, what did they miss, what did a human or reviewer catch
+  that a gate should have caught.
+- **Rule 7.4 Self-improvement analysis.** `scripts/self_improve.py`
+  mines the run history and memory journal for recurring findings and
+  regressions, and emits concrete harness upgrades: phrases to add to
+  `harness/forbidden_phrases.txt`, rules to add to the CLAUDE.md
+  never-do list, checks to tighten in `harness/papercheck.toml`, and
+  memory entries to resolve. Suggestions are advisory; a human approves
+  each change.
+- **Rule 7.5 Close the loop.** A recurring mistake that reaches a
+  reviewer twice is a harness bug: encode it as a deterministic check or
+  a standing rule so it cannot recur silently.
