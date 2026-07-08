@@ -12,8 +12,12 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Compile Python files
-        run: python -m py_compile scripts/check_forbidden_phrases.py scripts/verify_latex.py scripts/check_citations.py scripts/check_table_values.py scripts/check_table_manifest.py scripts/run_fixture_tests.py scripts/run_report.py scripts/qgate.py scripts/check_heading.py scripts/check_summary.py scripts/check_signals.py tools/check_path_markers.py
+      - name: Compile all Python sources
+        run: python -m compileall -q papercheck scripts tools tests
+      - name: List registered checks
+        run: python -m papercheck --list-checks
+      - name: Run unit tests
+        run: python -m unittest discover -s tests
       - name: Run default harness checks
         run: make -f makefiles/ManuscriptHarness.mk harness-verify
       - name: Run fixture regression suite

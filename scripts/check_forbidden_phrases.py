@@ -19,10 +19,24 @@ def load_phrases(path: Path) -> list[str]:
     return [line.strip() for line in lines if line.strip() and not line.strip().startswith("#")]
 
 
-def iter_files(root: Path):
-    skip_fixture_examples = root == Path('.')
+# Directories whose content legitimately quotes hype phrases when the
+# harness scans itself: rule-violating fixtures, the harness's own rule
+# specifications and instructional templates, and generated reports.
+SELF_SKIP_DIRS = {"fixtures", "docs", "templates", "playbooks"}
+SELF_SKIP_PATHS = {"harness/reports", "harness/memory"}
+
+
+def iter_files(root: Path, phrase_file: Path | None = None):
+    self_scan = root == Path('.')
+    phrase_abs = phrase_file.resolve() if phrase_file else None
     for path in root.rglob("*"):
-        if skip_fixture_examples and path.parts and path.parts[0] == "fixtures":
+        posix = path.as_posix().lstrip("./")
+        if self_scan and path.parts and path.parts[0] in SELF_SKIP_DIRS:
+            continue
+        if self_scan and any(posix.startswith(skip) for skip in SELF_SKIP_PATHS):
+            continue
+        # Never scan the phrase-definition file against itself.
+        if phrase_abs and path.resolve() == phrase_abs:
             continue
         if path.is_file() and path.suffix.lower() in EXTENSIONS and not any(part in EXCLUDES for part in path.parts):
             yield path
@@ -36,9 +50,10 @@ def main() -> int:
     args = parser.parse_args()
 
     root = Path(args.root)
-    phrases = load_phrases(Path(args.phrase_file))
+    phrase_file = Path(args.phrase_file)
+    phrases = load_phrases(phrase_file)
     findings = []
-    files = [root] if root.is_file() else list(iter_files(root))
+    files = [root] if root.is_file() else list(iter_files(root, phrase_file))
 
     for path in files:
         text = path.read_text(encoding="utf-8", errors="replace")

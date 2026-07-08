@@ -1,0 +1,7 @@
+{
+  "name": "intro_missing",
+  "tex": "manuscript/main.tex",
+  "select": ["intro.present"],
+  "profile": "submission",
+  "expect": "fail"
+}

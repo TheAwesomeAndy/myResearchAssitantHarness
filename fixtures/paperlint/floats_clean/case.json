@@ -1,0 +1,6 @@
+{
+  "name": "floats_clean",
+  "select": ["floats.caption","floats.label","floats.referenced","floats.ref-before","floats.color-only"],
+  "profile": "submission",
+  "expect": "pass"
+}

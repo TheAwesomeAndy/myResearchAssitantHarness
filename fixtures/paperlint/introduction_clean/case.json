@@ -1,0 +1,14 @@
+{
+  "name": "introduction_clean",
+  "tex": "manuscript/main.tex",
+  "select": [
+    "intro.present",
+    "intro.roadmap",
+    "intro.cliche-opening",
+    "intro.gap",
+    "intro.contributions",
+    "intro.forward-refs"
+  ],
+  "profile": "submission",
+  "expect": "pass"
+}

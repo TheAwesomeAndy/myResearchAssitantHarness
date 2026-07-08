@@ -1,0 +1,5 @@
+{"id": 1, "timestamp": "2026-05-01T09:00:00+0000", "kind": "decision", "text": "Target venue is the Journal of Robust Machine Intelligence (double-blind).", "tags": ["venue", "blinding"], "status": "open"}
+{"id": 2, "timestamp": "2026-05-02T10:00:00+0000", "kind": "lesson", "text": "papercheck caught pooled k-fold; switched to leave-one-subject-out to avoid identity leakage.", "tags": ["methods", "leakage"], "status": "resolved", "resolution": "Adopted LOSO in Section 3.4."}
+{"id": 3, "timestamp": "2026-05-03T11:00:00+0000", "kind": "reviewer", "text": "Reviewer 2 said the baseline is weak and wants a Transformer comparison.", "tags": ["methods", "baseline"], "status": "open"}
+{"id": 4, "timestamp": "2026-05-04T12:00:00+0000", "kind": "question", "text": "Should the ablation cover channel dropout as well as jitter?", "tags": ["methods", "robustness"], "status": "open"}
+{"id": 5, "timestamp": "2026-05-05T13:00:00+0000", "kind": "lesson", "text": "lang.hype flagged 'groundbreaking' in the intro; rewrote the opening soberly.", "tags": ["language"], "status": "open"}

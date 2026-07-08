@@ -1,0 +1,7 @@
+{
+  "name": "blind_links",
+  "select": ["blind.links"],
+  "profile": "submission",
+  "expect": "fail",
+  "config": "harness/papercheck.toml"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "discussion_missing",
+  "select": ["discussion.present"],
+  "profile": "submission",
+  "expect": "fail"
+}

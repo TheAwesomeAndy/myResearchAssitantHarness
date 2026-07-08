@@ -1,0 +1,6 @@
+{
+  "name": "bib_thin_fields",
+  "select": ["bib.missing-fields"],
+  "profile": "submission",
+  "expect": "fail"
+}

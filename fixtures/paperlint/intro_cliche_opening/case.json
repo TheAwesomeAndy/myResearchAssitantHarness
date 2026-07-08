@@ -1,0 +1,7 @@
+{
+  "name": "intro_cliche_opening",
+  "tex": "manuscript/main.tex",
+  "select": ["intro.cliche-opening"],
+  "profile": "submission",
+  "expect": "fail"
+}

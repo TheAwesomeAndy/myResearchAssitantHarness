@@ -1,8 +1,0 @@
-central idea
-gap
-importance
-title
-abstract
-baselines
-limits
-data note

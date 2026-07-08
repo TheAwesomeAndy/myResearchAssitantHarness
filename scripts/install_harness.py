@@ -18,12 +18,22 @@ import sys
 from pathlib import Path
 
 
+SKIP_NAMES = {"__pycache__", ".pytest_cache"}
+
+
 def copy_tree(src: Path, dst: Path) -> None:
-    if not src.exists():
+    if not src.exists() or src.name in SKIP_NAMES:
+        return
+    if src.is_file():
+        # A single file (e.g. project-instructions.md -> CLAUDE.md).
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(src, dst)
         return
     if dst.exists():
         # Merge directories by copying individual files
         for item in src.iterdir():
+            if item.name in SKIP_NAMES:
+                continue
             target = dst / item.name
             if item.is_dir():
                 copy_tree(item, target)
@@ -31,7 +41,7 @@ def copy_tree(src: Path, dst: Path) -> None:
                 target.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copy2(item, target)
     else:
-        shutil.copytree(src, dst)
+        shutil.copytree(src, dst, ignore=shutil.ignore_patterns(*SKIP_NAMES))
 
 
 def main() -> int:
@@ -56,6 +66,8 @@ def main() -> int:
         ("scripts", "scripts"),
         ("tools", "tools"),
         ("makefiles", "makefiles"),
+        ("papercheck", "papercheck"),
+        ("playbooks", "playbooks"),
     ]
     for src_rel, dest_rel in paths_to_copy:
         src_path = repo_root / src_rel

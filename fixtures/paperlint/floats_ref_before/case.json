@@ -1,0 +1,6 @@
+{
+  "name": "floats_ref_before",
+  "select": ["floats.ref-before"],
+  "profile": "submission",
+  "expect": "fail"
+}

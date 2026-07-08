@@ -1,0 +1,6 @@
+{
+  "name": "discussion_compare",
+  "select": ["discussion.compare"],
+  "profile": "submission",
+  "expect": "fail"
+}

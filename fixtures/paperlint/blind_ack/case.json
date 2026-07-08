@@ -1,0 +1,7 @@
+{
+  "name": "blind_ack",
+  "select": ["blind.acknowledgments"],
+  "profile": "submission",
+  "expect": "fail",
+  "config": "harness/papercheck.toml"
+}

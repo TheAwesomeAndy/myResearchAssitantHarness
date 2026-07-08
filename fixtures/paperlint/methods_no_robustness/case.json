@@ -1,0 +1,7 @@
+{
+  "name": "methods_no_robustness",
+  "tex": "manuscript/main.tex",
+  "select": ["methods.robustness"],
+  "profile": "submission",
+  "expect": "fail"
+}

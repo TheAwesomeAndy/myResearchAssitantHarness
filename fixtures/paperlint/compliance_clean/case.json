@@ -1,0 +1,7 @@
+{
+  "name": "compliance_clean",
+  "select": ["blind.unset","blind.author-block","blind.acknowledgments","blind.self-reveal","blind.links","blind.metadata","single.authors-required","ethics.statement","data.availability"],
+  "profile": "submission",
+  "expect": "pass",
+  "config": "harness/papercheck.toml"
+}

@@ -26,7 +26,15 @@ data_local/
 private_data/
 restricted_data/
 
-# Harness outputs
+# Harness run outputs (ephemeral, regenerated each run).
+# The memory journal (harness/memory/memory.jsonl) is intentionally NOT
+# ignored: it is durable, reviewable project knowledge that should be
+# versioned. Only per-run history and generated reports are ignored.
 harness/reports/*.json
+harness/reports/*.jsonl
 harness/reports/*.log
 harness/reports/*.txt
+harness/reports/*.md
+
+# The fixtures/ memory samples are demo data and must stay tracked.
+!fixtures/**

@@ -1,0 +1,6 @@
+{
+  "name": "language_clean",
+  "select": ["lang.hype","lang.hype-claims","lang.cautious","lang.ai-tells","lang.em-dash","lang.contractions","lang.weasel","lang.significant"],
+  "profile": "submission",
+  "expect": "pass"
+}

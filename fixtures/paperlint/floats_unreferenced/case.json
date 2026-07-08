@@ -1,0 +1,6 @@
+{
+  "name": "floats_unreferenced",
+  "select": ["floats.referenced"],
+  "profile": "submission",
+  "expect": "fail"
+}

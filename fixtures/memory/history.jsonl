@@ -1,0 +1,6 @@
+{"timestamp": "2026-06-01T09:00:00+0000", "tex": "manuscript/main.tex", "profile": "draft", "passed": false, "summary": {"errors": 2, "warnings": 5, "infos": 1}, "check_ids": ["lang.hype", "methods.baseline", "intro.gap", "data.availability"]}
+{"timestamp": "2026-06-02T09:00:00+0000", "tex": "manuscript/main.tex", "profile": "draft", "passed": false, "summary": {"errors": 2, "warnings": 4, "infos": 1}, "check_ids": ["lang.hype", "methods.baseline", "intro.gap"]}
+{"timestamp": "2026-06-03T09:00:00+0000", "tex": "manuscript/main.tex", "profile": "draft", "passed": false, "summary": {"errors": 1, "warnings": 4, "infos": 1}, "check_ids": ["lang.hype", "methods.baseline", "intro.contributions"]}
+{"timestamp": "2026-06-04T09:00:00+0000", "tex": "manuscript/main.tex", "profile": "draft", "passed": false, "summary": {"errors": 1, "warnings": 3, "infos": 0}, "check_ids": ["lang.hype", "methods.baseline"]}
+{"timestamp": "2026-06-05T09:00:00+0000", "tex": "manuscript/main.tex", "profile": "draft", "passed": false, "summary": {"errors": 1, "warnings": 2, "infos": 0}, "check_ids": ["lang.hype", "methods.baseline"]}
+{"timestamp": "2026-06-06T09:00:00+0000", "tex": "manuscript/main.tex", "profile": "draft", "passed": false, "summary": {"errors": 1, "warnings": 2, "infos": 0}, "check_ids": ["lang.hype", "methods.baseline"]}

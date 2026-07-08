@@ -1,0 +1,7 @@
+{
+  "name": "methods_leakage",
+  "tex": "manuscript/main.tex",
+  "select": ["methods.leakage"],
+  "profile": "submission",
+  "expect": "fail"
+}

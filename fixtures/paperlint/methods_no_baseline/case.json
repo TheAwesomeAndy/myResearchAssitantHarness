@@ -1,0 +1,7 @@
+{
+  "name": "methods_no_baseline",
+  "tex": "manuscript/main.tex",
+  "select": ["methods.baseline"],
+  "profile": "submission",
+  "expect": "fail"
+}

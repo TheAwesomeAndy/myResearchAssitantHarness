@@ -1,0 +1,7 @@
+{
+  "name": "title_short",
+  "tex": "manuscript/main.tex",
+  "select": ["title.length"],
+  "profile": "submission",
+  "expect": "fail"
+}

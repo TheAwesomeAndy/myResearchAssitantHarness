@@ -1,0 +1,7 @@
+{
+  "name": "intro_forward_refs",
+  "tex": "manuscript/main.tex",
+  "select": ["intro.forward-refs"],
+  "profile": "submission",
+  "expect": "fail"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "lang_contractions",
+  "select": ["lang.contractions"],
+  "profile": "submission",
+  "expect": "fail"
+}
