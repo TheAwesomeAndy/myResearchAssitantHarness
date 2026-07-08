@@ -98,7 +98,9 @@ See `docs/checks.md` for every id, severity, and fix.
 blinding policy (`double`, `single`, `none`), whether the study involves
 human subjects, the title and abstract bounds, and per-check overrides
 (`checks.disable`, `checks.warn_only`). Every key has a documented
-default; the shipped file lists them all.
+default; the shipped file lists them all. To adapt the checks to your
+field (theory, qualitative, clinical, structured-abstract venues), see
+`docs/tuning.md`.
 
 ## The Wall workflow
 
